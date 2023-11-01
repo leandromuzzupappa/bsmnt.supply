@@ -5,3 +5,9 @@
   justify-content: space-between;
   padding: 2rem;
 }
+
+.headerIcons {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
