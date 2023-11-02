@@ -8,13 +8,22 @@ interface HeadlineProps {
     position?: "left" | "right" | "center";
     variant?: "fill" | "outline";
   }[];
+  selfRef?: React.RefObject<HTMLHeadingElement>;
 }
 
-export const Headline = ({ as = "h1", className, copy }: HeadlineProps) => {
+export const Headline = ({
+  as = "h1",
+  className,
+  copy,
+  selfRef,
+}: HeadlineProps) => {
   const Component = as;
 
   return (
-    <Component className={`${styles.headline} ${className || ""}`}>
+    <Component
+      ref={selfRef}
+      className={`${styles.headline} ${className || ""}`}
+    >
       {copy.map((item, index) => (
         <span
           key={index}
