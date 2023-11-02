@@ -70,7 +70,6 @@
 }
 
 .indicatorHeadline span {
-  -webkit-text-stroke: 22px var(--neutral-0);
   font-size: 28px;
   line-height: 100%;
   width: max-content;
