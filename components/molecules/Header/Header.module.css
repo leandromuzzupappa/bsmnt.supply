@@ -11,3 +11,46 @@
   gap: 1rem;
   justify-content: space-between;
 }
+
+@media screen and (max-width: 768px) {
+  .headerIcons {
+    display: none;
+  }
+}
+
+.headerLogo path {
+  transition: fill 0.25s ease-in-out;
+}
+
+.headerLogo:hover path {
+  fill: var(--orange-500);
+}
+
+.headerLogoDesktop {
+  display: block;
+}
+.headerLogoMobile {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .headerLogo svg {
+    width: 42px;
+    height: 40px;
+  }
+
+  .headerLogo:hover path {
+    fill: var(--neutral-0);
+  }
+
+  .headerLogo:active path {
+    fill: var(--orange-500);
+  }
+
+  .headerLogoDesktop {
+    display: none;
+  }
+  .headerLogoMobile {
+    display: block;
+  }
+}

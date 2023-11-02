@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, createRef } from "react";
+import { useEffect, useRef } from "react";
+import Link from "next/link";
 import { Icon } from "@atoms/Icons/Icon";
 import { CartButton } from "@atoms/CartButton/CartButton";
 
@@ -20,7 +21,16 @@ export const Header = () => {
 
   return (
     <header className={styles.header}>
-      <Icon name={IconNames.BASEMENT} />
+      <Link href="/">
+        <Icon
+          name={IconNames.BASEMENT}
+          className={`${styles.headerLogo} ${styles.headerLogoDesktop}`}
+        />
+        <Icon
+          name={IconNames.FAVICON}
+          className={`${styles.headerLogo} ${styles.headerLogoMobile}`}
+        />
+      </Link>
 
       <div className={styles.headerIcons}>
         <Icon name={IconNames.RADIO} />
