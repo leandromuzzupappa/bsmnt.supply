@@ -11,6 +11,7 @@ import HeroThing1Icon from "./HeroThing1";
 import RadioIcon from "./Radio";
 import UHDIcon from "./UHD";
 import WorldIcon from "./World";
+import FooterIcon from "./FooterThing";
 
 export const Icon = ({ className, name, selfRef }: IconProp) => {
   const icons = {
@@ -24,6 +25,7 @@ export const Icon = ({ className, name, selfRef }: IconProp) => {
     [IconNames.RADIO]: RadioIcon,
     [IconNames.UHD]: UHDIcon,
     [IconNames.WORLD]: WorldIcon,
+    [IconNames.FOOTER]: FooterIcon,
   };
 
   const IconComponent = icons[name];

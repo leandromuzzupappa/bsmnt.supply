@@ -9,4 +9,5 @@ export enum IconNames {
   RADIO = "radio",
   UHD = "uhd",
   WORLD = "world",
+  FOOTER = "footer",
 }
