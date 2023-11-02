@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 
 import { Header } from "@molecules/Header/Header";
-import "./globals.css";
+import "@assets/styles/globals.css";
 
 const grotesque = localFont({
   src: "../assets/fonts/BasementGrotesque-Black.woff2",
