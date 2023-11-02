@@ -1,0 +1,15 @@
+.footer {
+  margin-block-end: 3.75rem;
+  position: relative;
+}
+
+.footer .footerTitle {
+  line-height: 100%;
+  margin-inline: auto;
+}
+
+.footerIcon {
+  left: 18%;
+  position: absolute;
+  top: 0%;
+}

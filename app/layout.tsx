@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 
 import { Header } from "@molecules/Header/Header";
+import { Footer } from "@molecules/Footer/Footer";
 import "@assets/styles/globals.css";
 
 const grotesque = localFont({
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body className={grotesque.className}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
