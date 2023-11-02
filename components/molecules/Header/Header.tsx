@@ -11,14 +11,6 @@ import { IconNames } from "@/data/enums/Icons";
 export const Header = () => {
   const eyeRef = useRef<HTMLSpanElement>(null);
 
-  useEffect(() => {
-    const ojito = eyeRef.current;
-
-    if (!ojito) return;
-
-    console.log(ojito);
-  }, [eyeRef]);
-
   return (
     <header className={styles.header}>
       <Link href="/">
