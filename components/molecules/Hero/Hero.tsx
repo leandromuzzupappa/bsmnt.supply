@@ -22,6 +22,7 @@ export const Hero = () => {
       defaults: {
         duration: 1,
         ease: "power4.out",
+        delay: 0.5,
       },
     });
 
@@ -40,7 +41,7 @@ export const Hero = () => {
     tl.fromTo(
       headlineSpans,
       {
-        opacity: 1,
+        opacity: 0,
         y: 100,
       },
       {
