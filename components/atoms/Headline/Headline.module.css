@@ -27,5 +27,10 @@
 
 .headline [data-variant="outline"] {
   color: var(--neutral-900);
-  -webkit-text-stroke: 2px var(--neutral-0);
+  --tl: max(-1px, -0.0694444444vw) max(-1px, -0.0694444444vw) 0 var(--neutral-0);
+  --tr: max(1px, 0.0694444444vw) max(-1px, -0.0694444444vw) 0 var(--neutral-0);
+  --bl: max(-1px, -0.0694444444vw) max(1px, 0.0694444444vw) var(--neutral-0);
+  --br: max(1px, 0.0694444444vw) max(1px, 0.0694444444vw) 0 var(--neutral-0);
+
+  text-shadow: var(--tl), var(--tr), var(--br), var(--bl);
 }
