@@ -5,6 +5,7 @@
   font-size: 13em;
   line-height: calc(80% + 1rem);
   margin-block-start: 1rem;
+  overflow: hidden;
   text-transform: uppercase;
   width: fit-content;
 }
