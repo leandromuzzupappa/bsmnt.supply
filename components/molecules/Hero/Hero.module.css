@@ -1,9 +1,28 @@
 .hero {
   border: 1px solid red;
-  width: 100vw;
-  min-height: 80vh;
+  padding: 3rem 0;
+  position: relative;
 }
 
 .heroHeadline {
   margin-inline: auto;
+}
+
+.heroHeadline span {
+  opacity: 1;
+}
+
+.heroBubbleLeft,
+.heroBubbleRight {
+  position: absolute;
+  top: 60%;
+  translate: 0 -50%;
+}
+
+.heroBubbleLeft {
+  left: 0;
+}
+
+.heroBubbleRight {
+  right: 0;
 }
