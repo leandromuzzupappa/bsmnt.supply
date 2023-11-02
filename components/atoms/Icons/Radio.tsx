@@ -2,7 +2,7 @@ import { IconsProps } from "@data/interfaces/Icons";
 
 export default function RadioIcon({ className, selfRef }: IconsProps) {
   return (
-    <div ref={selfRef} className={className}>
+    <span ref={selfRef} className={className}>
       <svg
         width="24"
         height="24"
@@ -33,6 +33,6 @@ export default function RadioIcon({ className, selfRef }: IconsProps) {
           />
         </g>
       </svg>
-    </div>
+    </span>
   );
 }

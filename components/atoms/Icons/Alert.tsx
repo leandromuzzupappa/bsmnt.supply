@@ -2,7 +2,7 @@ import { IconsProps } from "@data/interfaces/Icons";
 
 export default function AlertIcon({ className, selfRef }: IconsProps) {
   return (
-    <div ref={selfRef} className={className}>
+    <span ref={selfRef} className={className}>
       <svg
         width="25"
         height="22"
@@ -18,6 +18,6 @@ export default function AlertIcon({ className, selfRef }: IconsProps) {
           />
         </g>
       </svg>
-    </div>
+    </span>
   );
 }

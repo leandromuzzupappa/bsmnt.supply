@@ -2,7 +2,7 @@ import { IconsProps } from "@data/interfaces/Icons";
 
 export default function BasementLogo({ className, selfRef }: IconsProps) {
   return (
-    <div ref={selfRef} className={className}>
+    <span ref={selfRef} className={className}>
       <svg
         width="192"
         height="30"
@@ -60,6 +60,6 @@ export default function BasementLogo({ className, selfRef }: IconsProps) {
           </g>
         </g>
       </svg>
-    </div>
+    </span>
   );
 }

@@ -2,7 +2,7 @@ import { IconsProps } from "@data/interfaces/Icons";
 
 export default function HeroThing0Icon({ className, selfRef }: IconsProps) {
   return (
-    <div ref={selfRef} className={className}>
+    <span ref={selfRef} className={className}>
       <svg
         width="163"
         height="171"
@@ -334,6 +334,6 @@ export default function HeroThing0Icon({ className, selfRef }: IconsProps) {
           </g>
         </g>
       </svg>
-    </div>
+    </span>
   );
 }

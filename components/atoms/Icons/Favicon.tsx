@@ -2,7 +2,7 @@ import { IconsProps } from "@data/interfaces/Icons";
 
 export default function FavIcon({ className, selfRef }: IconsProps) {
   return (
-    <div ref={selfRef} className={className}>
+    <span ref={selfRef} className={className}>
       <svg
         width="128"
         height="127"
@@ -77,6 +77,6 @@ export default function FavIcon({ className, selfRef }: IconsProps) {
           </g>
         </g>
       </svg>
-    </div>
+    </span>
   );
 }
