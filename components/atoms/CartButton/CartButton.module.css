@@ -1,0 +1,40 @@
+.cartButton {
+  background: none;
+  border-radius: 56px;
+  border: 1.5px solid var(--neutral-0);
+  color: var(--neutral-0);
+  font-family: "Grotesque", sans-serif;
+  font-size: 18px;
+  letter-spacing: -0.583px;
+  overflow: hidden;
+  padding: 0.8125rem 2rem;
+  position: relative;
+  text-transform: uppercase;
+  transition: border-color 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+.cartButton::after {
+  aspect-ratio: 1/1;
+  background: var(--orange-500);
+  border-radius: 100px;
+  content: "";
+  position: absolute;
+  right: 0;
+  scale: 1;
+  top: 50%;
+  transform-origin: right center;
+  transition: translate 0.2s ease-in-out, scale 0.4s ease-in-out;
+  translate: 100% 100%;
+  width: 20px;
+  z-index: -1;
+}
+
+.cartButton:hover {
+  border-color: var(--orange-500);
+}
+
+.cartButton:hover::after {
+  translate: 0% -50%;
+  scale: 10;
+}

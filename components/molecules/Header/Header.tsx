@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, createRef } from "react";
 import { Icon } from "@atoms/Icons/Icon";
+import { CartButton } from "@atoms/CartButton/CartButton";
 
 import styles from "./Header.module.css";
 import { IconNames } from "@/data/enums/Icons";
@@ -29,7 +30,7 @@ export const Header = () => {
         <Icon name={IconNames.ALERT} />
       </div>
 
-      <button>cart (0)</button>
+      <CartButton />
     </header>
   );
 };
