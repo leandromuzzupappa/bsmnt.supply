@@ -1,0 +1,77 @@
+.productCard {
+  --card-bg1: rgb(29 29 29 / 100%);
+  --card-bg2: rgb(21 21 21 / 0%);
+}
+
+.cardImage {
+  background: var(--card-bg1);
+  background: linear-gradient(to top, var(--card-bg1), var(--card-bg2));
+  cursor: pointer;
+  border: 1px solid var(--neutral-900);
+  position: relative;
+  transition: border 0.35s ease-in-out;
+  width: 100%;
+}
+
+.productCard:hover .cardImage {
+  border: 1px solid var(--card-bg1);
+}
+
+.cardImage img {
+  display: block;
+  margin-inline: auto;
+  transition: scale 0.3s ease-in-out;
+}
+
+.productCard:hover .cardImage img {
+  scale: 1.1;
+}
+
+.cardInfo {
+  background: var(--neutral-900);
+  border-block-start: 3px solid var(--neutral-0);
+  display: flex;
+  justify-content: space-between;
+  padding-block: 1rem;
+}
+
+.cardInfo h4,
+.cardInfo p {
+  color: white;
+  font-size: 21px;
+}
+
+.cardIndicator {
+  background: none;
+  border: none;
+  height: 125px;
+  inset: 0;
+  left: 50%;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  scale: 0.8;
+  top: 60%;
+  translate: -50% -50%;
+  transition: opacity 0.2s ease-in-out, top 0.2s ease-in-out;
+  width: 125px;
+}
+
+.productCard:hover .cardIndicator {
+  opacity: 1;
+  top: 50%;
+}
+
+.indicatorHeadline {
+  left: 50%;
+  position: absolute;
+  top: 40%;
+  translate: -50% -50%;
+}
+
+.indicatorHeadline span {
+  -webkit-text-stroke: 22px var(--neutral-0);
+  font-size: 28px;
+  line-height: 100%;
+  width: max-content;
+}
