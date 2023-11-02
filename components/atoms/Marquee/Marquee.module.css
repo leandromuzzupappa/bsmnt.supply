@@ -1,0 +1,29 @@
+.marquee {
+  --marquee-gap: 1rem;
+
+  border: 1px solid var(--neutral-0);
+  border-inline: none;
+  overflow: hidden;
+}
+
+.marqueeInner {
+  animation: scroll 10s forwards linear infinite;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--marquee-gap);
+  padding-block: 1rem;
+  width: max-content;
+}
+
+.marqueeInner span {
+  color: var(--neutral-0);
+  font-size: 35px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+@keyframes scroll {
+  to {
+    transform: translate(calc(-33% - var(--marquee-gap)));
+  }
+}
