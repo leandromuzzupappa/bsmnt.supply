@@ -27,8 +27,8 @@ export const Headline = ({
       {copy.map((item, index) => (
         <span
           key={index}
-          data-position={item.position}
-          data-variant={item.variant}
+          data-position={item.position || "center"}
+          data-variant={item.variant || "fill"}
         >
           {item.text}
         </span>
