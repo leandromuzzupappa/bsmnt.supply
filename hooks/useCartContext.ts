@@ -4,12 +4,20 @@ import { useState, useEffect } from "react";
 import { IProductCart } from "@/data/interfaces/product";
 
 function loadCart() {
-  const _cart = localStorage.getItem("cart");
-  return _cart ? JSON.parse(_cart) : [];
+  try {
+    const _cart = localStorage.getItem("cart");
+    return _cart ? JSON.parse(_cart) : [];
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function persistCart(cart: IProductCart[]) {
-  localStorage.setItem("cart", JSON.stringify(cart));
+  try {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export interface ICartContext {
