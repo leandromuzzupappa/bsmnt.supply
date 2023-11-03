@@ -1,14 +1,16 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useState, useContext } from "react";
 import Link from "next/link";
 import { Icon } from "@atoms/Icons/Icon";
 import { CartButton } from "@atoms/CartButton/CartButton";
 import { CartModal } from "@molecules/CartModal/CartModal";
 import styles from "./Header.module.css";
 import { IconNames } from "@/data/enums/Icons";
+import { CartContext } from "@/contexts/CartContext";
 
 export const Header = () => {
+  const { getQuantity } = useContext(CartContext);
   const [cartOpen, setCartOpen] = useState(false);
 
   const onCardButtonClick = () => {
@@ -37,7 +39,11 @@ export const Header = () => {
         <Icon name={IconNames.ALERT} />
       </div>
 
-      <CartButton onClick={onCardButtonClick} isOpen={cartOpen} />
+      <CartButton
+        onClick={onCardButtonClick}
+        isOpen={cartOpen}
+        qty={getQuantity()}
+      />
 
       <CartModal isOpen={cartOpen} onCloseCart={() => setCartOpen(false)} />
     </header>
