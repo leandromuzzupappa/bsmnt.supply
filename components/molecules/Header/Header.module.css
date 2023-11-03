@@ -17,6 +17,18 @@
   }
 }
 
+.headerLogoReader {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 0px;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
 .headerLogo path {
   transition: fill 0.25s ease-in-out;
 }

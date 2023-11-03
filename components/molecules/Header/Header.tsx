@@ -22,9 +22,10 @@ export const Header = () => {
           name={IconNames.FAVICON}
           className={`${styles.headerLogo} ${styles.headerLogoMobile}`}
         />
+        <p className={styles.headerLogoReader}>Basement.</p>
       </Link>
 
-      <div className={styles.headerIcons}>
+      <div className={styles.headerIcons} aria-hidden="true">
         <Icon name={IconNames.RADIO} />
         <Icon name={IconNames.HD} />
         <Icon name={IconNames.EYE} selfRef={eyeRef} />
