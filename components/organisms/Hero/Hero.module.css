@@ -1,6 +1,5 @@
 .hero {
-  padding-block-start: 3rem;
-  padding-block-end: 5rem;
+  padding-block: 0rem 3rem;
   position: relative;
 }
 
@@ -14,15 +13,24 @@
 
 .heroBubbleLeft,
 .heroBubbleRight {
+  --bubble-offset: clamp(1%, 4%, 6%);
+
   position: absolute;
   top: 60%;
   translate: 0 -50%;
 }
 
 .heroBubbleLeft {
-  left: 0;
+  left: var(--bubble-offset);
 }
 
 .heroBubbleRight {
-  right: 0;
+  right: var(--bubble-offset);
+}
+
+@media screen and (max-width: 960px) {
+  .heroBubbleLeft,
+  .heroBubbleRight {
+    --bubble-offset: 1%;
+  }
 }

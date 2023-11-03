@@ -2,7 +2,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  font-size: 13em;
+  font-size: clamp(1em, 14vw, 20em);
   line-height: calc(80% + 1rem);
   margin-block-start: 1rem;
   overflow: hidden;
@@ -34,4 +34,12 @@
   --br: max(1px, 0.0694444444vw) max(1px, 0.0694444444vw) 0 var(--neutral-0);
 
   text-shadow: var(--tl), var(--tr), var(--br), var(--bl);
+}
+
+@media screen and (max-width: 480px) {
+  .headline [data-variant="outline"] {
+    --bl: max(-1px, -0.0694444444vw) max(-1px, -0.9694444444vw) var(--neutral-0);
+    --tl: max(-1px, -1.0694444444vw) max(-1px, -0.0694444444vw) 0
+      var(--neutral-0);
+  }
 }

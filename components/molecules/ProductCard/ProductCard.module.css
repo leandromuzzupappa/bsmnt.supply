@@ -20,7 +20,9 @@
 .cardImage img {
   display: block;
   margin-inline: auto;
+  object-fit: contain;
   transition: scale 0.3s ease-in-out;
+  width: 100%;
 }
 
 .productCard:hover .cardImage img {
@@ -73,4 +75,16 @@
   font-size: 28px;
   line-height: 100%;
   width: max-content;
+}
+
+@media screen and (max-width: 768px) {
+  .cardImage {
+    border: 1px solid var(--card-bg1);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cardImage img {
+    max-height: 432px;
+  }
 }

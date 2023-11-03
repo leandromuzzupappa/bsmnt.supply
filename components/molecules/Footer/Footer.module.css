@@ -1,4 +1,5 @@
 .footer {
+  margin-inline: 1rem;
   margin-block-end: 3.75rem;
   position: relative;
 }
@@ -9,7 +10,30 @@
 }
 
 .footerIcon {
-  left: 18%;
+  right: clamp(50%, 95%, 100%);
   position: absolute;
   top: 0%;
+  translate: 100% 0;
+}
+
+@media screen and (max-width: 960px) {
+  .footerIcon {
+    top: -10%;
+  }
+
+  .footerIcon svg {
+    width: 220px;
+    height: 123px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footerIcon {
+    top: -20%;
+  }
+
+  .footerIcon svg {
+    width: 115px;
+    height: 64px;
+  }
 }
