@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { IProductCart } from "@/data/interfaces/product";
 
-function loadCart() {
+function loadCart(): IProductCart[] {
   if (typeof window !== "undefined") {
     const _cart = localStorage.getItem("cart");
     return _cart ? JSON.parse(_cart) : [];
@@ -24,8 +24,11 @@ function persistCart(cart: IProductCart[]) {
 export interface ICartContext {
   cart: IProductCart[];
   addToCart: (product: IProductCart) => void;
-  removeFromCart: (product: IProductCart) => void;
+  removeFromCart: (productId: string) => void;
   getTotals: () => number;
+  getQuantity: () => number;
+  increaseOne: (productId: string) => void;
+  decreaseOne: (productId: string) => void;
 }
 
 export const useCartContext = () => {
@@ -36,11 +39,40 @@ export const useCartContext = () => {
   }, [cart]);
 
   const addToCart = (product: IProductCart) => {
-    setCart([...cart, product]);
+    const productIndex = cart.findIndex(({ id }) => id === product.id);
+
+    if (productIndex > -1) {
+      const newCart = [...cart];
+      newCart[productIndex].quantity += product.quantity;
+      setCart(newCart);
+    } else {
+      setCart([...cart, product]);
+    }
   };
 
-  const removeFromCart = (product: IProductCart) => {
-    setCart(cart.filter((item: IProductCart) => item.id !== product.id));
+  const removeFromCart = (productId: string) => {
+    const newCart = cart.filter(({ id }) => id !== productId);
+    setCart(newCart);
+  };
+
+  const increaseOne = (productId: string) => {
+    const newCart = [...cart];
+    const productIndex = cart.findIndex(({ id }) => id === productId);
+    newCart[productIndex].quantity += 1;
+    setCart(newCart);
+  };
+
+  const decreaseOne = (productId: string) => {
+    const newCart = [...cart];
+    const productIndex = cart.findIndex(({ id }) => id === productId);
+
+    if (newCart[productIndex].quantity === 1) {
+      removeFromCart(productId);
+      return;
+    }
+
+    newCart[productIndex].quantity -= 1;
+    setCart(newCart);
   };
 
   const getTotals = () => {
@@ -51,10 +83,17 @@ export const useCartContext = () => {
     return total;
   };
 
+  const getQuantity = () => {
+    return cart.reduce((acc, { quantity }) => acc + quantity, 0);
+  };
+
   return {
     cart,
     addToCart,
     removeFromCart,
     getTotals,
+    getQuantity,
+    increaseOne,
+    decreaseOne,
   };
 };
