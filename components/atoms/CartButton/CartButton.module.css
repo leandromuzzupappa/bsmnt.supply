@@ -3,6 +3,7 @@
   border-radius: 56px;
   border: 1.5px solid var(--neutral-0);
   color: var(--neutral-0);
+  cursor: pointer;
   font-family: "Grotesque", sans-serif;
   font-size: 18px;
   letter-spacing: -0.583px;
@@ -11,7 +12,7 @@
   position: relative;
   text-transform: uppercase;
   transition: border-color 0.4s ease-in-out;
-  cursor: pointer;
+  z-index: 5;
 }
 
 .cartButton::after {
@@ -37,6 +38,34 @@
 .cartButton:hover::after {
   translate: 0% -50%;
   scale: 10;
+}
+
+.cartButtonTextClose,
+.cartButtonText {
+  transition: left 0.2s ease-in-out;
+}
+
+.cartButtonTextClose {
+  position: absolute;
+  left: -70%;
+  translate: -50% 0;
+  width: max-content;
+}
+
+.cartButtonText {
+  position: relative;
+  left: 0%;
+}
+
+.cartButton[data-open="true"] {
+  border: 1.5px solid rgb(0 0 0 / 0%);
+}
+
+.cartButton[data-open="true"] .cartButtonText {
+  left: 160%;
+}
+.cartButton[data-open="true"] .cartButtonTextClose {
+  left: 50%;
 }
 
 @media screen and (max-width: 768px) {
