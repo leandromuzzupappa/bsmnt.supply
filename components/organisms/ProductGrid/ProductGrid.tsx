@@ -1,14 +1,16 @@
 "use client";
-
+import { useContext, useRef, useEffect } from "react";
 import { ProductCard } from "@/components/molecules/ProductCard/ProductCard";
+import { CartContext } from "@/contexts/CartContext";
 import styles from "./ProductGrid.module.css";
 import { products } from "@/data/products/products";
+import { IProductCart } from "@/data/interfaces/product";
 
 export const ProductGrid = () => {
-  const handleAddToCart = (id: string): { id: string } => {
-    console.log("pepitos", id);
+  const { cart, addToCart } = useContext(CartContext);
 
-    return { id };
+  const handleAddToCart = (product: IProductCart) => {
+    addToCart(product);
   };
 
   return (
