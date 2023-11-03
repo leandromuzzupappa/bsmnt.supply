@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 
+import { Providers } from "@/providers";
+
 import { Header } from "@molecules/Header/Header";
 import { Footer } from "@molecules/Footer/Footer";
 import "@assets/styles/globals.css";
@@ -24,9 +26,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={grotesque.className}>
-        <Header />
-        {children}
-        <Footer />
+        <Providers>
+          <Header />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
