@@ -1,5 +1,6 @@
 .hero {
-  padding-block: 0rem 3rem;
+  margin-block-start: 114px; /* 114px header height */
+  padding-block: 0 3rem;
   position: relative;
 }
 
