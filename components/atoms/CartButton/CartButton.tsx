@@ -5,14 +5,13 @@ import styles from "./CartButton.module.css";
 
 interface ICartButtonProps {
   isOpen: boolean;
+  qty: number;
   onClick: () => void;
 }
 
-export const CartButton = ({ isOpen, onClick }: ICartButtonProps) => {
+export const CartButton = ({ isOpen, qty = 0, onClick }: ICartButtonProps) => {
   const closeBtnRef = useRef<HTMLButtonElement>(null);
   const cartBtnRef = useRef<HTMLButtonElement>(null);
-
-  const [cartCount, setCartCount] = useState(12);
 
   return (
     <button className={styles.cartButton} onClick={onClick} data-open={isOpen}>
@@ -20,7 +19,7 @@ export const CartButton = ({ isOpen, onClick }: ICartButtonProps) => {
         → Close
       </span>
       <span className={styles.cartButtonText} aria-hidden={isOpen}>
-        Cart (<span>{cartCount}</span>)
+        Cart (<span>{qty}</span>)
       </span>
     </button>
   );
