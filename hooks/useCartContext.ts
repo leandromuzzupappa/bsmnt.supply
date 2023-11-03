@@ -4,19 +4,20 @@ import { useState, useEffect } from "react";
 import { IProductCart } from "@/data/interfaces/product";
 
 function loadCart() {
-  try {
+  if (typeof window !== "undefined") {
     const _cart = localStorage.getItem("cart");
     return _cart ? JSON.parse(_cart) : [];
-  } catch (error) {
-    console.log(error);
+  } else {
+    console.log("window is undefined");
+    return [];
   }
 }
 
 function persistCart(cart: IProductCart[]) {
-  try {
+  if (typeof window !== "undefined") {
     localStorage.setItem("cart", JSON.stringify(cart));
-  } catch (error) {
-    console.log(error);
+  } else {
+    console.log("window is undefined - product not persisted");
   }
 }
 
