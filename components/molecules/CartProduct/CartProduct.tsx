@@ -1,9 +1,16 @@
-import { useState, useEffect } from "react";
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import styles from "./CartProduct.module.css";
 import { IProductCart } from "@/data/interfaces/product";
 
 const sizes = ["S", "M", "L", "XL"];
+
+interface ICartProductProps extends IProductCart {
+  onAdd: () => void;
+  onRemove: () => void;
+}
 
 export const CartProduct = ({
   id,
@@ -12,8 +19,9 @@ export const CartProduct = ({
   image,
   options,
   quantity,
-}: IProductCart) => {
-  const [qty, setQty] = useState(quantity || 1);
+  onAdd,
+  onRemove,
+}: ICartProductProps) => {
   const [size, setSize] = useState(options.size || "S");
 
   return (
@@ -28,9 +36,9 @@ export const CartProduct = ({
         <p className={styles.cartProductQty}>
           QUANTITY:
           <span>
-            <button>-</button>
+            <button onClick={onRemove}>-</button>
             {quantity}
-            <button>+</button>
+            <button onClick={onAdd}>+</button>
           </span>
         </p>
         <p className={styles.cartProductOptions}>
