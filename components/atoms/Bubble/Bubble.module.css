@@ -1,7 +1,28 @@
 .bubble {
   border: 2px solid var(--neutral-0);
   border-radius: 50%;
-  font-size: 1.5em;
-  margin: 2rem;
-  padding: 29px 68px;
+  font-size: 2rem;
+  padding: 25px 50px;
+}
+
+@media screen and (max-width: 1440px) {
+  .bubble {
+    padding: 19px 37px;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .bubble {
+    padding: 14px 34px;
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .bubble {
+    border: 1px solid var(--neutral-0);
+    font-size: 0.5rem;
+    padding: 9px 15px;
+  }
 }
