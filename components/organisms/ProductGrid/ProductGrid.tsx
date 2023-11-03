@@ -13,13 +13,13 @@ export const ProductGrid = () => {
 
   return (
     <section className={styles.productGrid}>
-      {products.map((product) => (
-        <ProductCard
-          key={product.id + "dsa"}
-          {...product}
-          onAddToCart={handleAddToCart}
-        />
-      ))}
+      <ul>
+        {products.map((product) => (
+          <li key={product.id + "dsa"}>
+            <ProductCard {...product} onAddToCart={handleAddToCart} />
+          </li>
+        ))}
+      </ul>
     </section>
   );
 };
