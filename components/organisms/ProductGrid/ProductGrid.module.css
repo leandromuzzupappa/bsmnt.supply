@@ -1,6 +1,23 @@
 .productGrid {
+  margin: 5rem 1rem;
+  overflow: hidden;
+}
+
+.productGrid ul {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1rem;
-  margin: 15rem 1rem;
+  list-style: none;
+}
+
+@media (max-width: 768px) {
+  .productGrid ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .productGrid ul {
+    grid-template-columns: 1fr;
+  }
 }
