@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 
 import { Providers } from "@/providers";
 
+import { MouseIndicator } from "@atoms/MouseIndicator/MouseIndicator";
 import { Header } from "@molecules/Header/Header";
 import { Footer } from "@molecules/Footer/Footer";
 import "@assets/styles/globals.css";
@@ -57,6 +58,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </Providers>
+        <MouseIndicator />
       </body>
     </html>
   );
