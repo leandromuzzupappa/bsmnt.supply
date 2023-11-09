@@ -8,16 +8,17 @@ function loadCart(): IProductCart[] {
     const _cart = localStorage.getItem("cart");
     return _cart ? JSON.parse(_cart) : [];
   } else {
-    console.log("window is undefined");
-    return [];
+    console.log("Unable to load the cart. Window is undefined");
   }
+
+  return [];
 }
 
 function persistCart(cart: IProductCart[]) {
   if (typeof window !== "undefined") {
     localStorage.setItem("cart", JSON.stringify(cart));
   } else {
-    console.log("window is undefined - product not persisted");
+    console.log("Unable to save te product. Window is undefined");
   }
 }
 
