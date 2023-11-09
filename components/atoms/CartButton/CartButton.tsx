@@ -1,6 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { hideMouseIndicator } from "@atoms/MouseIndicator/MouseIndicator";
 import styles from "./CartButton.module.css";
 
 interface ICartButtonProps {
@@ -10,11 +11,39 @@ interface ICartButtonProps {
 }
 
 export const CartButton = ({ isOpen, qty = 0, onClick }: ICartButtonProps) => {
-  const closeBtnRef = useRef<HTMLButtonElement>(null);
   const cartBtnRef = useRef<HTMLButtonElement>(null);
 
+  useEffect(() => {
+    const cartButton = cartBtnRef.current;
+
+    if (!cartButton) return;
+
+    cartButton.addEventListener("mouseenter", () => {
+      hideMouseIndicator.value = true;
+    });
+
+    cartButton.addEventListener("mouseleave", () => {
+      hideMouseIndicator.value = false;
+    });
+
+    return () => {
+      cartButton.removeEventListener("mouseenter", () => {
+        hideMouseIndicator.value = true;
+      });
+
+      cartButton.removeEventListener("mouseleave", () => {
+        hideMouseIndicator.value = false;
+      });
+    };
+  }, []);
+
   return (
-    <button className={styles.cartButton} onClick={onClick} data-open={isOpen}>
+    <button
+      ref={cartBtnRef}
+      className={styles.cartButton}
+      onClick={onClick}
+      data-open={isOpen}
+    >
       <span className={styles.cartButtonTextClose} aria-hidden={!isOpen}>
         → Close
       </span>
