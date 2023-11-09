@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext, useRef, useEffect } from "react";
+import { useContext, useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { Headline } from "@atoms/Headline/Headline";
 import { CartProduct } from "@molecules/CartProduct/CartProduct";
@@ -15,6 +15,8 @@ interface ICartModalProps {
 
 export const CartModal = ({ isOpen, onCloseCart }: ICartModalProps) => {
   const { cart, getTotals, increaseOne, decreaseOne } = useContext(CartContext);
+  const [productList, setProductList] = useState<IProductCart[]>([]);
+  const [total, setTotal] = useState(0);
 
   const cartModalRef = useRef<HTMLDivElement>(null);
   const cartOverlayRef = useRef<HTMLDivElement>(null);
@@ -52,6 +54,11 @@ export const CartModal = ({ isOpen, onCloseCart }: ICartModalProps) => {
     }
   }, [isOpen]);
 
+  useEffect(() => {
+    setProductList(cart);
+    setTotal(getTotals());
+  }, [cart, getTotals]);
+
   return (
     <>
       <div ref={cartModalRef} className={styles.cartModal} data-show={isOpen}>
@@ -71,7 +78,7 @@ export const CartModal = ({ isOpen, onCloseCart }: ICartModalProps) => {
         />
 
         <ul className={styles.cartModalList}>
-          {cart.map((product: IProductCart) => (
+          {productList.map((product: IProductCart) => (
             <li key={product.id}>
               <CartProduct
                 {...product}
@@ -84,7 +91,7 @@ export const CartModal = ({ isOpen, onCloseCart }: ICartModalProps) => {
 
         <div className={styles.cartModalActions}>
           <p>
-            Total: <span>${getTotals().toFixed(2)}</span>
+            Total: <span>${total.toFixed(2)}</span>
           </p>
           <button className={styles.cartModalCheckout}>Checkout</button>
         </div>
