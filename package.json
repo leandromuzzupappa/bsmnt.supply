@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@preact/signals": "^1.2.1",
     "@react-three/fiber": "^8.15.9",
     "@types/three": "^0.158.1",
     "gsap": "^3.12.2",
