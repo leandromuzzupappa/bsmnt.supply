@@ -2,14 +2,19 @@
 
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { Canvas } from "@react-three/fiber";
 import { Headline } from "@atoms/Headline/Headline";
 import { Bubble } from "@atoms/Bubble/Bubble";
+import { HeroExperience } from "./HeroExperience";
 import styles from "./Hero.module.css";
+import { useWindowSize } from "@/hooks/useWindowSize";
 
 export const Hero = () => {
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const bubbleLeftRef = useRef<HTMLSpanElement>(null);
   const bubbleRightRef = useRef<HTMLSpanElement>(null);
+
+  const windowSize = useWindowSize();
 
   useEffect(() => {
     const headline = headlineRef.current;
@@ -73,6 +78,23 @@ export const Hero = () => {
         className={styles.heroBubbleRight}
         copy="2K19"
       />
+
+      {windowSize.width > 768 && (
+        <div className={styles.canvasWrapper}>
+          <Canvas
+            orthographic
+            camera={{ zoom: 75 }}
+            gl={{ antialias: false, alpha: true }}
+            onCreated={({ gl }) => {
+              gl.setClearColor(0x000000, 0);
+              gl.clearDepth();
+              gl.autoClear = false;
+            }}
+          >
+            <HeroExperience />
+          </Canvas>
+        </div>
+      )}
     </section>
   );
 };

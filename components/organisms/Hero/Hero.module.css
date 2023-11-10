@@ -1,5 +1,7 @@
 .hero {
-  margin-block-start: 114px; /* 114px header height */
+  --margin-block-start: 114px;
+
+  margin-block-start: var(--margin-block-start); /* 114px header height */
   padding-block: 0 3rem;
   position: relative;
 }
@@ -27,6 +29,21 @@
 
 .heroBubbleRight {
   right: var(--bubble-offset);
+}
+
+.canvasWrapper {
+  height: calc(var(--margin-block-start) + 150%);
+  left: 0;
+  opacity: 0.9;
+  pointer-events: none;
+  position: absolute;
+  top: calc(var(--margin-block-start) * -1);
+  width: 100%;
+  /* z-index: 10; */
+}
+
+.canvasWrapper > * {
+  pointer-events: none !important;
 }
 
 @media screen and (max-width: 960px) {
